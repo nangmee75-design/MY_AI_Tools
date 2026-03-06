@@ -207,3 +207,11 @@ elif menu == t["m4"]:
                     file_name="subtitles.srt",
                     mime="text/plain"
                 )
+                uploaded_file = st.file_uploader(
+    "Upload Video",
+    type=["mp4", "mov", "avi"],
+    accept_multiple_files=False
+)
+
+if uploaded_file is not None:
+    st.video(uploaded_file)
