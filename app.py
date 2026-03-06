@@ -8,7 +8,8 @@ import datetime
 
 # --- ဝက်ဘ်ဆိုက် မျက်နှာပြင် စတင်ခြင်း ---
 st.set_page_config(page_title="VoxAI Tools", layout="wide", page_icon="🚀")
-
+st.title("🤖 Vox AI Tool")
+st.write("AI Tools for Video Creators")
 # --- App ဘာသာစကား ရွေးချယ်ရန် (Language Toggle) ---
 if 'app_lang' not in st.session_state:
     st.session_state['app_lang'] = 'MM'
