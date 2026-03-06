@@ -8,12 +8,23 @@ import datetime
 
 # --- ဝက်ဘ်ဆိုက် မျက်နှာပြင် စတင်ခြင်း ---
 st.set_page_config(page_title="VoxAI Tools", layout="wide", page_icon="🚀")
-
+st.title("🤖 Vox AI Tool")
+st.write("AI Tools for Video Creators")
 # --- App ဘာသာစကား ရွေးချယ်ရန် (Language Toggle) ---
 if 'app_lang' not in st.session_state:
     st.session_state['app_lang'] = 'MM'
 
 with st.sidebar:
+    menu = st.selectbox(
+"Choose Tool",
+[
+"Home",
+"Movie Recap Script",
+"Voice to Text",
+"Video to Subtitle",
+"Text to AI Voice"
+]
+)
     lang_col1, lang_col2 = st.columns(2)
     with lang_col1:
         if st.button("🇲🇲 မြန်မာ"): st.session_state['app_lang'] = 'MM'
@@ -215,3 +226,28 @@ elif menu == t["m4"]:
 
 if uploaded_file is not None:
     st.video(uploaded_file)
+    tool = st.selectbox(
+"Choose AI Tool",
+[
+"Voice to Text",
+"Subtitle Generator",
+"AI Voice",
+"Translate Subtitle",
+"Script Generator"
+]
+)
+    video = st.file_uploader(
+"Upload your video",
+type=["mp4","mov","mkv"]
+)
+    if st.button("Generate"):
+    st.success("Processing your video...")
+    st.text_area(
+"Result",
+"Your AI result will appear here"
+)
+    st.download_button(
+"Download File",
+data="Subtitle text",
+file_name="subtitle.txt"
+)
